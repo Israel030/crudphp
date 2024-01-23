@@ -1,6 +1,19 @@
 
 <?php 
 include('.\bd.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    
+    if ($username == 'admin' && $password == 'admin') {
+        $_SESSION["loggedin"] = true;
+        $_SESSION["username"] = $username;
+        header("location: dashboard.php");
+    } else {
+        $error = "Usuario o contraseña incorrectos.";
+    }
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -43,12 +56,12 @@ include('.\bd.php');
                             
                         <form action="" method="post">
                             <div class="mb-3">
-                                <label for="usuario" class="form-label">Usruario</label>
+                                <label for="username" class="form-label">Usuario</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    name="usuario"
-                                    id="usuario"
+                                    name=username"
+                                    id="username"
                                     aria-describedby="helpId"
                                     placeholder=""
                                 />

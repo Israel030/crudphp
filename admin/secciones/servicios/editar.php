@@ -3,15 +3,18 @@ include("../../bd.php");
 //Recuperar los datos del ID correspondiente seleccionado
 if(isset($_GET['txtID'])){
     $txtID=(isset($_GET['txtID']) )?$_GET['txtID']:"";
-    
-    $sentencia=$con->prepare("SELECT FROM servicios where id=:id");
+    $icono=(isset($_POST{'icono'}))?$_POST['icono']:"";
+    $titulo=(isset($_POST{'titulo'}))?$_POST['titulo']:"";
+    $descripcion=(isset($_POST{'descripcion'}))?$_POST['descripcion']:"";
+
+
+    $sentencia=$con->prepare("UPDATE servicios SET icono = '$icono', titulo = '$titulo', descripcion = '$descripcion' where id=:id");
     $sentencia->bindParam(":id",$txtID);
     $sentencia->execute();
     $registro=$sentencia->fetch(PDO::FETCH_LAZY);
 
-    $icono=$registro['icono'];
-    $titulo=$registro['titulo'];
-    $descripcion=$registro['descripcion'];
+
+    // $sentencia->close();
     }
 
 include("../../templates/header.php");?>
@@ -28,8 +31,8 @@ include("../../templates/header.php");?>
         <input
             type="text"
             class="form-control"
-            name=""
-            id=""
+            name="id"
+            id="id"
             aria-describedby="helpId"
             placeholder="ID"
         />
