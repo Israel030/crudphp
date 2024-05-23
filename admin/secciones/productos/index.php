@@ -1,5 +1,6 @@
 <?php 
-include("../../bd.php");
+include('../../ConexionBD/bd.php');
+
 if(isset($_GET['txtID'])){
     $sentencia=$con->prepare("DELETE FROM productos where id=:id");
     $txtID=(isset($_GET['txtID']) )?$_GET['txtID']:"";

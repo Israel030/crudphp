@@ -27,6 +27,7 @@
                     <a class="nav-item nav-link active" href="#" aria-current="page"
                         >Administrador <span class="visually-hidden">(current)</span></a
                     >
+                    <a class="nav-item nav-link" href="<?php echo $url_base;?>"><i class="fa fa-edit">Perfil</i></a>
                     <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/servicios">Servicios</a>
                     <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/productos">Productos</a>
                     <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/nosotros">Sobre Nosotros</a>

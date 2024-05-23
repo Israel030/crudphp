@@ -1,5 +1,6 @@
 <?php 
-include("../../bd.php");
+include('../../ConexionBD/bd.php');
+
 if($_POST){
 //recepcionamos los valores del formulario
 $Descripcion=(isset($_POST{'Descripcion'}))?$_POST['Descripcion']:"";

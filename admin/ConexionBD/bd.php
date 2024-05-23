@@ -7,7 +7,7 @@ try {
     $pass = "";
 
     $con =new PDO("mysql:host=$servidor;dbname=$DBname",$usuario,$pass);
-    echo "Conexion Exitosa!";
+    // echo "Conexion Exitosa!";
 
 } catch (\Throwable $th) {
     throw $th;

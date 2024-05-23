@@ -1,6 +1,7 @@
 <?php 
 //incluimos la base de datos
-include("../../bd.php");
+include('../../ConexionBD/bd.php');
+
 //comprobar si se hace un envio POST
 if($_POST){
     // print_r($_POST);
@@ -16,6 +17,9 @@ if($_POST){
     $sentencia->bindParam(":titulo",$titulo);
     $sentencia->bindParam(":descripcion",$descripcion);
     $sentencia->execute();
+
+header("Location: index.php");
+
 }
 
 include("../../templates/header.php");?>

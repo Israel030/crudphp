@@ -1,18 +1,14 @@
 <?php 
-include("../../bd.php");
-//borrar dicho registro con el ID correspondiente
-if(isset($_GET['txtID'])){
-$sentencia=$con->prepare("DELETE FROM servicios where id=:id");
-$txtID=(isset($_GET['txtID']) )?$_GET['txtID']:"";
-$sentencia->bindParam(":id",$txtID);
-$sentencia->execute();
-}
+include('../../ConexionBD/bd.php');
+// include("../../bd.php");
+
 
 //seleccionar  y mostrar todos los campos de la tabla servicios
-$sentencia = $con->prepare("SELECT * FROM `servicios`");
+$sentencia = $con->prepare("SELECT * FROM `servicios` where habilitado = 1");
 $sentencia->execute();
 $lista_servicios=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 // print_r($lista_servicios);
+
 include("../../templates/header.php");?>
 
 
@@ -66,7 +62,7 @@ include("../../templates/header.php");?>
                                 name=""
                                 id=""
                                 class="btn btn-danger"
-                                href="index.php?txtID=<?php echo $registros['ID']; ?>"
+                                href="borrar.php?txtID=<?php echo $registros['ID']; ?>"
                                 role="button"
                                 >Borrar</a
                             >

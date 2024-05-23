@@ -1,5 +1,6 @@
 <?php 
-include ("../../bd.php");
+include('../../ConexionBD/bd.php');
+
 
 if(isset($_GET['txtID'])){
     $txtID=(isset($_GET['Descripcion']))?$_GET['txtID']:"";
